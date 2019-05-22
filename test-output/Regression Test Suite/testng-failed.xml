@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Regression Test Suite]">
+  <test name="Tests(failed)" parallel="tests">
+    <classes>
+      <class name="TestScenario.ValidateAccountLoginFunctionality">
+        <methods>
+          <include name="TC_FieldValidationsOnRecoverPasswordPage"/>
+          <include name="TC_FieldValidationsOnCreateAccountPage"/>
+          <include name="TC_FieldValidationsOnLoginPage"/>
+          <include name="TC_VerifyErrorScenariosForLogin"/>
+          <include name="TC_VerifyErrorScenariosForRecoverPassword"/>
+          <include name="setup"/>
+          <include name="TC_VerifyErrorScenariosForCreateAccount"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- TestScenario.ValidateAccountLoginFunctionality -->
+      <class name="TestScenario.ValidateHomePage">
+        <methods>
+          <include name="TC_verifyAccountAndCartIconOnHomePage"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- TestScenario.ValidateHomePage -->
+      <class name="TestScenario.ValidateProductDetailsPage">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- TestScenario.ValidateProductDetailsPage -->
+    </classes>
+  </test> <!-- Tests(failed) -->
+</suite> <!-- Failed suite [Regression Test Suite] -->
