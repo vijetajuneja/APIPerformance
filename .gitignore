@@ -10,6 +10,7 @@ bin/
 .settings
 .springBeans
 *.class
+test-output/
 
 ### IntelliJ IDEA ###
 .idea
