@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Reporter;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 
 public class CustomUtilities {
@@ -23,6 +25,7 @@ public class CustomUtilities {
 	 * 
 	 * @throws Exception
 	 */
+	@BeforeSuite
 	public static WebDriver launchtj() throws Exception 
 	{
 		// load properties file
@@ -40,7 +43,7 @@ public class CustomUtilities {
 		driver.manage().window().maximize();
 		return driver;
 	}
-
+	@AfterSuite
 	public static void teardown()
 	{
 		 if (driver != null)

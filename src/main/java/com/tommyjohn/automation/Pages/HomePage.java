@@ -4,7 +4,6 @@ import com.tommyjohn.automation.Components.HomePageComponents;
 
 public class HomePage extends HomePageComponents {
 
-
 	public void logoandcategoriespresence() throws Exception
 	{
 		ValidateLogoAndCategoriesPresence();

@@ -22,14 +22,17 @@ public class AccountLoginComponents extends AccountLoginLocators{
 
 	public String createAccount() throws Exception
 	{
-		System.out.println("Create Account");
 		testemail = "testaccount" + System.currentTimeMillis() +"@gmail.com";
 		password = CustomUtilities.properties.getProperty("password");
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
 		Thread.sleep(3000);
 		driver.findElement(CREATEACCOUNT_BTN).click();
 		Thread.sleep(3000);
+		driver.findElement(CREATEACCOUNT_EMAIL).clear();
+		Thread.sleep(2000);
 		driver.findElement(CREATEACCOUNT_EMAIL).sendKeys(testemail);
+		driver.findElement(CREATEACCOUNT_PASSWORD).clear();
+		Thread.sleep(2000);
 		driver.findElement(CREATEACCOUNT_PASSWORD).sendKeys(password);
 		driver.findElement(CREATEACCOUNT_BUTTON).click();
 		Thread.sleep(3000);
@@ -49,7 +52,6 @@ public class AccountLoginComponents extends AccountLoginLocators{
 
 	public void verifyFieldsOnCreateAccount() throws Exception
 	{
-		System.out.println("Verify All Fields OnCreate Account");
 		String text=null;
 		String currentUrl;
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
@@ -127,7 +129,6 @@ public class AccountLoginComponents extends AccountLoginLocators{
 
 	public void verifyErrosForCreateAccount() throws Exception
 	{
-		System.out.println("Errors On Create Account");
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
 		Thread.sleep(3000);
 		driver.findElement(CREATEACCOUNT_BTN).click();
@@ -149,7 +150,7 @@ public class AccountLoginComponents extends AccountLoginLocators{
 	public void verifyFieldsOnRecoverPasswordPage() throws Exception {
 		String currentUrl = null;
 		String text = null;
-		System.out.println("Verify all fields on passwordRecover");
+
 		// click on accout icon from home page
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
 		Thread.sleep(3000);
@@ -202,7 +203,7 @@ public class AccountLoginComponents extends AccountLoginLocators{
 
 	public void recoverPassword(String createdAccountEmail) throws Exception {
 		String text = null;
-		System.out.println("Recover password");
+		
 		// click on accout icon from home page
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
 		Thread.sleep(3000);
@@ -215,6 +216,8 @@ public class AccountLoginComponents extends AccountLoginLocators{
 
 		// put the email in textbox to send recover
 		if(driver.findElements(INPUT_BOX_FOR_EMAIL).size()!= 0) {
+			driver.findElement(INPUT_BOX_FOR_EMAIL).clear();
+			Thread.sleep(2000);
 			driver.findElement(INPUT_BOX_FOR_EMAIL).sendKeys(createdAccountEmail);
 		}
 		else
@@ -230,7 +233,6 @@ public class AccountLoginComponents extends AccountLoginLocators{
 		if(!driver.findElement(EMAIL_RECIEVED_SUCCESS_MESSAGE).isEnabled())
 			throw new Exception("Email recieved message is not present");
 		text = driver.findElement(EMAIL_RECIEVED_SUCCESS_MESSAGE).getText();
-		System.out.println("Text :: "+text);
 		if(!text.equals(CustomUtilities.properties.getProperty("emailRecievedSuccessMessage")))
 			throw new Exception("Expected text is" + CustomUtilities.properties.getProperty("emailRecievedSuccessMessage") + "but actual is "+text);
 
@@ -239,7 +241,7 @@ public class AccountLoginComponents extends AccountLoginLocators{
 	
 	public void verifyAllErrorsOnRecoverPasswordPage() throws Exception{
 		String text = null;
-		System.out.println("verify all errors on password page");
+		
 		// click on accout icon from home page
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
 		Thread.sleep(3000);
@@ -252,6 +254,8 @@ public class AccountLoginComponents extends AccountLoginLocators{
 
 		// put the email in textbox to send recover
 		if(driver.findElements(INPUT_BOX_FOR_EMAIL).size()!= 0) {
+			driver.findElement(INPUT_BOX_FOR_EMAIL).clear();
+			Thread.sleep(2000);
 			driver.findElement(INPUT_BOX_FOR_EMAIL).sendKeys(invalidemail);
 		}
 		else
@@ -281,7 +285,7 @@ public class AccountLoginComponents extends AccountLoginLocators{
 
 	public void verifyAllFieldsOnLoginPage() throws Exception {
 		String text = null;
-		System.out.println("verify all fields on login page");
+		
 		// click on accout icon from home page
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
 		Thread.sleep(3000);
@@ -329,7 +333,7 @@ public class AccountLoginComponents extends AccountLoginLocators{
 	}
 	
 	public void verifyAccountLoginFuctionality(String createdAccountEmail) throws Exception {
-		System.out.println("verify account login functionality");
+		
 		// click on accout icon from home page
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
 		Thread.sleep(3000);
@@ -339,17 +343,28 @@ public class AccountLoginComponents extends AccountLoginLocators{
 		// type correct email if email inputbox is present
 		if(driver.findElements(CUSTOMER_EMAIL_INPUT).size()== 0)
 			throw new Exception("Email inputbox is not present");
+		driver.findElement(CUSTOMER_EMAIL_INPUT).clear();
+		Thread.sleep(2000);
 		driver.findElement(CUSTOMER_EMAIL_INPUT).sendKeys(createdAccountEmail);
 
 		// type correct password if password inputbox is present
 		if(driver.findElements(CUSTOMER_PASSWORD_INPUTBOX).size()== 0)
 			throw new Exception("Email inputbox is not present");
+		driver.findElement(CUSTOMER_PASSWORD_INPUTBOX).clear();
+		Thread.sleep(2000);
 		driver.findElement(CUSTOMER_PASSWORD_INPUTBOX).sendKeys(CustomUtilities.properties.getProperty("password"));
 		
 		// click login button if present
 		if(!driver.findElement(LOGIN_BUTTON).isDisplayed())
 			throw new Exception("Login button is not present");
 		driver.findElement(LOGIN_BUTTON).click();
+		Thread.sleep(4000);
+		// logout the account
+		element = driver.findElement(HomePageLocators.ACCOUNT_ICON);
+		actions.moveToElement(element).perform();
+		driver.findElement(LOGOUT_OPTION_IN_ACCOUNT_ICON).click();
+		Thread.sleep(3000);
+
 	}
 		else throw new Exception("Wrong page opened");  
 		
@@ -357,7 +372,7 @@ public class AccountLoginComponents extends AccountLoginLocators{
 	}
 	
 	public void verifyErrorMessagesOnLoginPage() throws Exception {
-		System.out.println("Error messages on login page");
+		
 		// click on accout icon from home page
 		driver.findElement(HomePageLocators.ACCOUNT_ICON).click();
 		Thread.sleep(3000);
@@ -367,11 +382,15 @@ public class AccountLoginComponents extends AccountLoginLocators{
 			// type wrong email if email inputbox is present
 			if(driver.findElements(CUSTOMER_EMAIL_INPUT).size()== 0)
 				throw new Exception("Email inputbox is not present");
+			driver.findElement(CUSTOMER_EMAIL_INPUT).clear();
+			Thread.sleep(2000);
 			driver.findElement(CUSTOMER_EMAIL_INPUT).sendKeys(invalidemail);
 
 			// type correct password if password inputbox is present
 			if(driver.findElements(CUSTOMER_PASSWORD_INPUTBOX).size()== 0)
 				throw new Exception("Email inputbox is not present");
+			driver.findElement(CUSTOMER_PASSWORD_INPUTBOX).clear();
+			Thread.sleep(2000);
 			driver.findElement(CUSTOMER_PASSWORD_INPUTBOX).sendKeys(invalidpassword);
 		
 			// click login button if present

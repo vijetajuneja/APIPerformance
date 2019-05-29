@@ -15,6 +15,7 @@ public class HomePageLocators{
 	public static By DRESS_SHIRTS_IN_MEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(2) > div > ul > li:nth-child(4) > ul > li:nth-child(2) > a");
 	public static By ALL_MENS_COLLECTIONS_IN_MEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(2) > div > ul > li:nth-child(5) > ul > li:nth-child(1) > a");	
 	public static By WHATS_NEW_IN_MEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(2) > div > ul > li:nth-child(1) > div");
+	public static By SECOND_SKIN_IN_MEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(2) > div > ul > li:nth-child(5) > ul > li:nth-child(3) > a");
 	
 	public static By WOMEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(3) > a");
 	public static By WHATS_NEW_IN_WOMEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(3) > div > ul > li:nth-child(1) > div");
@@ -22,6 +23,7 @@ public class HomePageLocators{
 	public static By ALL_PANTIES_IN_WOMEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(3) > div > ul > li:nth-child(2) > ul > li:nth-child(1) > a");
 	public static By TEES_AND_POLOS_IN_WOMEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(3) > div > ul > li:nth-child(3) > ul > li:nth-child(2) > a");
 	public static By ALL_WOMENS_COLLECTIONS_IN_WOMEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(3) > div > ul > li:nth-child(4) > ul > li:nth-child(1) > a");
+	public static By ALL_CLOTHING_IN_WOMEN_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(3) > div > ul > li:nth-child(3) > ul > li:nth-child(1) > a");
 	
 	public static By UNDERWEAR_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(4) > a");
 	public static By MEN_IN_UNDERWEAR_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(4) > div > ul > li:nth-child(1) > div");
@@ -33,6 +35,7 @@ public class HomePageLocators{
 	public static By MEN_IN_PACKS = By.cssSelector(".header-desktop-left > ul > li:nth-child(6) > div > ul > li:nth-child(1) > div");
 	public static By ALL_MENS_PACKS_IN_PACKS_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(6) > div > ul > li:nth-child(1) > ul > li:nth-child(1) > a");
 	public static By ALL_WOMENS_PACKS_IN_PACKS_CATEGORY = By.cssSelector(".header-desktop-left > ul > li:nth-child(6) > div > ul > li:nth-child(2) > ul > li:nth-child(1) > a");
+	public static By COOL_COTTON_IN_MENS_COLLECTIONS = By.cssSelector(".header-desktop-left > ul > li:nth-child(2) > div > ul > li:nth-child(5) > ul > li:nth-child(4) > a");
 	
 	public static By REWARDS = By.cssSelector(".header-desktop-left > ul > li:nth-child(7) > a");
 
@@ -50,7 +53,7 @@ public class HomePageLocators{
 	
 	public static By ACCOUNT_ICON = By.cssSelector("i.icon-account");
 	public static By CART_ICON = By.cssSelector("i.icon-shopping-cart");
-	public static By CART_HEADING_TEXT = By.cssSelector(".inline-cart__header > h3");
+	public static By CART_HEADING_TEXT = By.cssSelector(".inline-cart__col1 > h3");
 	
 	public static By ABOUT_LINK = By.linkText("About");
 	public static By PRESS_LINK = By.linkText("Press");

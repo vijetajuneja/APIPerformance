@@ -10,15 +10,15 @@ import com.tommyjohn.automation.utils.CustomUtilities;
 public class ValidateHomePage {
 	public WebDriver driver;
 	
-	@BeforeTest(alwaysRun = true)
-	void setup() {
-		try {
-			CustomUtilities.launchtj();
-
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-	}
+//	@BeforeTest(alwaysRun = true)
+//	void setup() {
+//		try {
+//			CustomUtilities.launchtj();
+//
+//		} catch (Exception e1) {
+//			e1.printStackTrace();
+//		}
+//	}
 	
 	@Test
 	public void TC_verifyLogoAndCategoriesOnHomePage() throws Exception {
@@ -43,15 +43,15 @@ public class ValidateHomePage {
 		new HomePage().validateCartIcon();
 	}
 	
-	@AfterTest(alwaysRun = true)
-	void tearDown() {
-		try {
-			CustomUtilities.teardown();
-
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-	}
+//	@AfterTest(alwaysRun = true)
+//	void tearDown() {
+//		try {
+//			CustomUtilities.teardown();
+//
+//		} catch (Exception e1) {
+//			e1.printStackTrace();
+//		}
+//	}
 
 
 }

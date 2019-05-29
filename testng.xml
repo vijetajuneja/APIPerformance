@@ -4,9 +4,11 @@
   <test thread-count="1" name="Tests" verbose ="1" parallel="tests">
   
   <classes>
-  	<class name = "TestScenario.ValidateProductDetailsPage"/>
-	<class name = "TestScenario.ValidateAccountLoginFunctionality"/>
-	<class name = "TestScenario.ValidateHomePage"/>
-  </classes>
+ 	 <class name = "com.tommyjohn.automation.utils.CustomUtilities"/>
+  	 <class name = "TestScenario.ValidateProductDetailsPage"/>
+	 <class name = "TestScenario.ValidateAccountLoginFunctionality"/>
+ 	 <class name = "TestScenario.ValidateHomePage"/>
+<!-- 	 <class name = "TestScenario.ValidateCollectionPage"/> -->
+   </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

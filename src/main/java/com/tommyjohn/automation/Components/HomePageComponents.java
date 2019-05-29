@@ -632,4 +632,38 @@ public class HomePageComponents extends HomePageLocators {
 		driver.findElement(ALL_WOMENS_PACKS_IN_PACKS_CATEGORY).click();
 		Thread.sleep(3000);
 	}
+	
+	// nevigate to single collection cool cotton
+	public static void nevigateToCoolCottonInMensCollection() throws Exception {
+		element = driver.findElement(MEN_CATEGORY);
+		action.moveToElement(element).perform();
+		driver.findElement(COOL_COTTON_IN_MENS_COLLECTIONS).click();
+		Thread.sleep(3000);
+	}
+	
+	// navigate to All Clothing in womens categories
+	public static void navigateToAllClothingInWomensCategory() throws Exception {
+		element = driver.findElement(WOMEN_CATEGORY);
+		action.moveToElement(element).perform();
+		driver.findElement(ALL_CLOTHING_IN_WOMEN_CATEGORY).click();
+		Thread.sleep(3000);	
+	}
+	
+	// navigate to second skin in men catagory
+	public static void navigateToSecondSkinInMenCategory() throws Exception {
+		element = driver.findElement(MEN_CATEGORY);
+		action.moveToElement(element).perform();
+		driver.findElement(SECOND_SKIN_IN_MEN_CATEGORY).click();
+		Thread.sleep(3000);	
+		
+	}
+	// navigate to all panties in women catagory
+	public static void navigateToAllPantiesInWomenCategory() throws Exception {
+		element = driver.findElement(WOMEN_CATEGORY);
+		action.moveToElement(element).perform();
+		driver.findElement(ALL_PANTIES_IN_WOMEN_CATEGORY).click();
+		Thread.sleep(3000);	
+		
+	}
+
 }

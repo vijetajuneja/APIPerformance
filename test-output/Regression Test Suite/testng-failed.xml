@@ -3,31 +3,17 @@
 <suite name="Failed suite [Regression Test Suite]">
   <test name="Tests(failed)" parallel="tests">
     <classes>
-      <class name="TestScenario.ValidateAccountLoginFunctionality">
+      <class name="com.tommyjohn.automation.utils.CustomUtilities">
         <methods>
-          <include name="TC_FieldValidationsOnRecoverPasswordPage"/>
-          <include name="TC_FieldValidationsOnCreateAccountPage"/>
-          <include name="TC_FieldValidationsOnLoginPage"/>
-          <include name="TC_VerifyErrorScenariosForLogin"/>
-          <include name="TC_VerifyErrorScenariosForRecoverPassword"/>
-          <include name="setup"/>
-          <include name="TC_VerifyErrorScenariosForCreateAccount"/>
-          <include name="tearDown"/>
+          <include name="teardown"/>
+          <include name="launchtj"/>
         </methods>
-      </class> <!-- TestScenario.ValidateAccountLoginFunctionality -->
-      <class name="TestScenario.ValidateHomePage">
+      </class> <!-- com.tommyjohn.automation.utils.CustomUtilities -->
+      <class name="TestScenario.ValidateCollectionPage">
         <methods>
-          <include name="TC_verifyAccountAndCartIconOnHomePage"/>
-          <include name="setup"/>
-          <include name="tearDown"/>
+          <include name="TC_ValidateMegaCollectionAllPantiesInWomenCategory"/>
         </methods>
-      </class> <!-- TestScenario.ValidateHomePage -->
-      <class name="TestScenario.ValidateProductDetailsPage">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- TestScenario.ValidateProductDetailsPage -->
+      </class> <!-- TestScenario.ValidateCollectionPage -->
     </classes>
   </test> <!-- Tests(failed) -->
 </suite> <!-- Failed suite [Regression Test Suite] -->

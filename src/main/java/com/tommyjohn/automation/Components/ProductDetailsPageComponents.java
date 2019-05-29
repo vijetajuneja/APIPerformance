@@ -22,7 +22,39 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 	List<WebElement> allElements;
 	int elementsCount;
 
+	
 	public void validateProductDetailsPage() throws Exception {
+		String text = null;
+		
+		// call method to navigate to collection page
+		HomePageComponents.nevigateToAllUnderwearInMenCategory();
+		
+		// call method to nevigate product details page
+		text = CollectionPageComponent.navigateToProductDetailsPage();
+		
+		// call method to check correct PDP opend or not
+		checkCorrectProductDetailsPageOpenedOrNot(text);
+		
+		// call method for PDP validation
+		validatePage();
+
+	}
+	
+	public static void checkCorrectProductDetailsPageOpenedOrNot(String text1) throws Exception {
+		String text2 = null;
+		
+		if(!driver.findElement(PRODUCT_TITLE).isEnabled())
+			throw new Exception("Product title is not displayed on product details page");
+		text2 = driver.findElement(PRODUCT_TITLE).getText();
+		
+		// check correct PDP opened
+		if(!text1.equals(text2))
+			throw new Exception("Wrog product details page opened");
+		Reporter.log("Product details page is Correct :: Product title is Displayed");
+
+	}
+	
+	public void validatePage() throws Exception {
 		String text1 = null;
 		String allClasses = null;
 		boolean flag = false;
@@ -30,11 +62,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		String colorBeforeChange = null;
 		String quantity = null;
 		
-		// call method to navigate All underwear in mens category
-		HomePageComponents.nevigateToAllUnderwearInMenCategory();
-		text1 = CollectionPageComponent.navigateToProductDetailsPage();
-		checkCorrectProductDetailsPageOpenedOrNot(text1);
-		
+
 		// check product price is displayed or not
 		if(!driver.findElement(PRODUCT_PRICE).isEnabled())
 			throw new Exception("Product price is not displayed");
@@ -74,7 +102,9 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			Thread.sleep(3000);
 			jse = (JavascriptExecutor)driver;
 			jse.executeScript("window.scrollBy(0,-250)", "");
-			driver.findElement(By.cssSelector(".yotpo-stars")).click();
+			Thread.sleep(4000);
+		//	driver.findElement(By.cssSelector(".yotpo-stars")).click();
+			driver.findElement(RATING_STARS).click();
 			// wait for scroll it down
 			Thread.sleep(3000);
 			Reporter.log("Review Stars Are Displayed :: Clickable :: Clicked");
@@ -128,9 +158,9 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		Thread.sleep(3000);
 		
 		// Check we can select color or not
-		allElements = driver.findElements(By.cssSelector(".product-option__variants.product-option__variants-size > ul > li"));
+		allElements = driver.findElements(ALL_COLOR_LIST);
         elementsCount = allElements.size();
-        System.out.println("Element count :: "+elementsCount);
+        System.out.println("Color Element count :: "+elementsCount);
 
         // change second color if present
         if(elementsCount > 1) {
@@ -150,7 +180,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
         	if(colorBeforeChange.equals(colorAfterChange))
         		throw new Exception("Third color not changing");
         }
-        Reporter.log(elementsCount+" Colors are present and changing correct");
+        Reporter.log("Colors are present and changing correct");
         
         
 		// Select first size between available sizes
@@ -196,6 +226,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 				// check if we are able to add and minus quantity
 				quantity = driver.findElement(QUANTITY).getAttribute("data-add-qty");
 				driver.findElement(PLUS_BUTTON).click();
+				Thread.sleep(3000);
 				String quantity1 = driver.findElement(UPDATED_QUANTITY).getAttribute("data-add-qty");
 				// check quantity added by 1 or not 
 				if(Integer.parseInt(quantity1)!=Integer.parseInt(quantity)+1) 
@@ -263,27 +294,12 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 				jse = (JavascriptExecutor)driver;
 				jse.executeScript("arguments[0].click();", element);
 						
+				driver.get(CustomUtilities.baseUrl);
 			//	driver.findElement(ADD_TO_CART_BUTTON).click();
 				Thread.sleep(3000);
 				Reporter.log("ADD TO CART button is Displayed :: Clickable");
 				break;
 			}
-		}
+        }
 	}
-	
-	public static void checkCorrectProductDetailsPageOpenedOrNot(String text1) throws Exception {
-		String text2 = null;
-		
-		if(!driver.findElement(PRODUCT_TITLE).isEnabled())
-			throw new Exception("Product title is not displayed on product details page");
-		text2 = driver.findElement(PRODUCT_TITLE).getText();
-		
-		// check correct PDP opened
-		if(!text1.equals(text2))
-			throw new Exception("Wrog product details page opened");
-		Reporter.log("Product details page is Correct :: Product title is Displayed");
-
-	}
-	
-	
 }

@@ -15,16 +15,18 @@ public class AddToCartTests {
 	public void launch()
 	{
 		try {
-			CustomUtilities.launchtj();
+//			CustomUtilities.launchtj();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	@Test
-	public void AddToCartTestCase() {
-		
-		new AddToCartPage(driver).ATC();
-
-	}
+//	@Test
+//	public void AddToCartTestCase() {
+//		
+//		new AddToCartPage(driver).ATC();
+//
+//	}
+	
+	
 }

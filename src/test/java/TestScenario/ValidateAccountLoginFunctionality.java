@@ -13,15 +13,15 @@ public class ValidateAccountLoginFunctionality {
 	String accountCreatedEmail;
 //	String accountCreatedEmail = "testaccount1558509824283@gmail.com";
 
-	@BeforeTest(alwaysRun = true)
-	void setup() {
-		try {
-			CustomUtilities.launchtj();
-
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-	}
+//	@BeforeTest(alwaysRun = true)
+//	void setup() {
+//		try {
+//			CustomUtilities.launchtj();
+//
+//		} catch (Exception e1) {
+//			e1.printStackTrace();
+//		}
+//	}
 
 	@Test
 	public void TC_FieldValidationsOnLoginPage() throws Exception
@@ -42,19 +42,21 @@ public class ValidateAccountLoginFunctionality {
 	}
 
 
-	@Test(priority = 2)
+	@Test(dependsOnMethods = { "TC_VerifyCreateAccount" })
+//	@Test(priority = 3)
 	public void TC_VerifyAccountLogin() throws Exception
 	{
 		new AccountLoginPage().loginCustomerAccount(accountCreatedEmail);
 	}
 
-	@Test(priority = 1)
+	@Test
 	public void TC_VerifyCreateAccount() throws Exception
 	{
 		accountCreatedEmail = new AccountLoginPage().createCustomerAccount();
 	}
 
-	@Test(priority = 3)
+	@Test(dependsOnMethods = { "TC_VerifyCreateAccount" })
+//	@Test(priority = 2)
 	public void TC_VerifyRecoverPassword() throws Exception
 	{
 		new AccountLoginPage().recoverPasswordFunctionality(accountCreatedEmail);
@@ -76,15 +78,15 @@ public class ValidateAccountLoginFunctionality {
 		new AccountLoginPage().verifyErrorsOnRecoverPasswordPage();
 	}
 
-	@AfterTest(alwaysRun = true)
-	void tearDown() {
-		try {
-			CustomUtilities.teardown();
-
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-	}
+//	@AfterTest(alwaysRun = true)
+//	void tearDown() {
+//		try {
+//			CustomUtilities.teardown();
+//
+//		} catch (Exception e1) {
+//			e1.printStackTrace();
+//		}
+//	}
 
 
 }
