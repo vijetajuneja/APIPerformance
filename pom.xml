@@ -67,6 +67,21 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.1.2</version>
+			<scope>test</scope>
+		</dependency>
+
+
 		<!-- https://mvnrepository.com/artifact/com.github.stephenc.monte/monte-screen-recorder -->
 		<dependency>
 			<groupId>com.github.stephenc.monte</groupId>
@@ -113,61 +128,61 @@
 
 
 			<!-- Post-Man plugin -->
-			<plugin>
-				<groupId>ch.fortysix</groupId>
-				<artifactId>maven-postman-plugin</artifactId>
-				<version>0.1.6</version>
-				<executions>
-					<execution>
-						<id>Report Generation</id>
-						<phase>test</phase>
-						<goals>
-							<goal>send-mail</goal>
-						</goals>
-						<inherited>true</inherited>
-						<configuration>
-							<!-- From Email address -->
-							<from>noreplymw@tommyjohnwear.com</from>
-							<!-- Email subject -->
-							<subject>Test Automation Report</subject>
-							<!-- Fail the build if the mail doesn't reach -->
-							<failonerror>false</failonerror>
-							<!-- Email Body Content -->
-							<htmlMessage>
-                                    <![CDATA[
-                                    <p>Hello!</p>
-                                    <p>Automation Suite Triggered!</p>
-                                    <p>Attached html file contains the test result status</p>
-                                    <p>Please download and view the report for proper formatting</p> 
-                                    ]]>
-							</htmlMessage>
-							<!-- host -->
-							<mailhost>smtp.emailsrvr.com</mailhost>
-							<!-- port of the host -->
-							<mailport>587</mailport>
-							<mailssl>false</mailssl>
-							<mailAltConfig>false</mailAltConfig>
-							<!-- Email Authentication(Username and Password) -->
-							<mailuser>edw_job_alerts@aretove.com</mailuser>
-							<mailpassword>RedBook2018</mailpassword>
-							<receivers>
-								<!-- To Email address -->
-								<receiver>vijeta@tommyjohnwear.com</receiver>
-							</receivers>
-							<fileSets>
-								<fileSet>
-									<!-- Report directory Path -->
-									<directory>${basedir}/target/surefire-reports</directory>
-									<includes>
-										<!-- Report file name -->
-										<include>emailable-report.html</include>
-									</includes>
-								</fileSet>
-							</fileSets>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>ch.fortysix</groupId> -->
+<!-- 				<artifactId>maven-postman-plugin</artifactId> -->
+<!-- 				<version>0.1.6</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>Report Generation</id> -->
+<!-- 						<phase>test</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>send-mail</goal> -->
+<!-- 						</goals> -->
+<!-- 						<inherited>true</inherited> -->
+<!-- 						<configuration> -->
+<!-- 							From Email address -->
+<!-- 							<from>noreplymw@tommyjohnwear.com</from> -->
+<!-- 							Email subject -->
+<!-- 							<subject>Test Automation Report</subject> -->
+<!-- 							Fail the build if the mail doesn't reach -->
+<!-- 							<failonerror>false</failonerror> -->
+<!-- 							Email Body Content -->
+<!-- 							<htmlMessage> -->
+<!--                                     <![CDATA[ -->
+<!--                                     <p>Hello!</p> -->
+<!--                                     <p>Automation Suite Triggered!</p> -->
+<!--                                     <p>Attached html file contains the test result status</p> -->
+<!--                                     <p>Please download and view the report for proper formatting</p>  -->
+<!--                                     ]]> -->
+<!-- 							</htmlMessage> -->
+<!-- 							host -->
+<!-- 							<mailhost>smtp.emailsrvr.com</mailhost> -->
+<!-- 							port of the host -->
+<!-- 							<mailport>587</mailport> -->
+<!-- 							<mailssl>false</mailssl> -->
+<!-- 							<mailAltConfig>false</mailAltConfig> -->
+<!-- 							Email Authentication(Username and Password) -->
+<!-- 							<mailuser>edw_job_alerts@aretove.com</mailuser> -->
+<!-- 							<mailpassword>RedBook2018</mailpassword> -->
+<!-- 							<receivers> -->
+<!-- 								To Email address -->
+<!-- 								<receiver>vijeta@tommyjohnwear.com</receiver> -->
+<!-- 							</receivers> -->
+<!-- 							<fileSets> -->
+<!-- 								<fileSet> -->
+<!-- 									Report directory Path -->
+<!-- 									<directory>${basedir}/target/surefire-reports</directory> -->
+<!-- 									<includes> -->
+<!-- 										Report file name -->
+<!-- 										<include>emailable-report.html</include> -->
+<!-- 									</includes> -->
+<!-- 								</fileSet> -->
+<!-- 							</fileSets> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
